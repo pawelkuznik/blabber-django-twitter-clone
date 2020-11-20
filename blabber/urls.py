@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from blabbers.views import home_view
+from blabbers.views import home_view, blabber_detail_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view),
+    path('blabbers/<int:blab_id>', blabber_detail_view),
 ]

@@ -6,7 +6,15 @@ from .models import Blab
 def home_view(request, *args, **kwargs):
     return render(request, 'pages/home.html', context={}, status=200)
 
-def blabber_detail_view(request, blab_id, *args, **kwargs):
+def blab_list_view(request, *args, **kwargs):
+    qs = Blab.objects.all()
+    blabs_list = [{"id": x.id, "content": x.content} for x in qs]
+    data = {
+        "response": blabs_list
+    }
+    return JsonResponse(data)
+
+def blab_detail_view(request, blab_id, *args, **kwargs):
     """
     REST API VIEW
     """

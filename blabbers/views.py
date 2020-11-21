@@ -4,7 +4,7 @@ from .models import Blab
 
 # Create your views here.
 def home_view(request, *args, **kwargs):
-    return HttpResponse("<h1>Hello World</h1>")
+    return render(request, 'pages/home.html', context={}, status=200)
 
 def blabber_detail_view(request, blab_id, *args, **kwargs):
     """
